@@ -21,13 +21,21 @@ const StyledText = styled.p`
   margin: 0
 `
 
-const Tags = ({activeTag = ''}) => {
+const Tags = ({selectedTag, onSelectTag}) => {
   return (
     <StyledDiv>
       <StyledText>Busque por tags:</StyledText>
 
       <TagsContainer>
-        {tags.map(tag => <Tag key={tag.id} active={activeTag === tag.titulo}>{tag.titulo}</Tag>)}
+        {tags.map(tag => (
+          <Tag 
+            key={tag.id}
+            onClick={() => onSelectTag(tag)}
+            active={selectedTag.id == tag.id}
+          >
+            {tag.titulo}
+          </Tag>
+        ))}
       </TagsContainer>
     </StyledDiv>
   )

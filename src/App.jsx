@@ -35,6 +35,8 @@ const ContentContainer = styled.section`
 function App() {
   const [photos, setPhotos] = useState(photosJson)
   const [selectedPhoto, setSelectedPhoto] = useState(null)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedTag, setSelectedTag] = useState({ id: 0})
 
   const onToggleFavPhoto = (favPhoto) => {
     if (favPhoto.id === selectedPhoto?.id) {
@@ -50,15 +52,20 @@ function App() {
     })))
   }
 
-
-  const [searchTerm, setSearchTerm] = useState('')
   useEffect(() => {
+    const isPhotoVisible = (photo) => {
+      const bySearchTerm = !searchTerm || photo.title.toLowerCase().startsWith(searchTerm.toLowerCase())
+      const byTag = (!selectedTag || selectedTag.id === 0) || photo.tagId === selectedTag.id
+
+      return bySearchTerm && byTag
+    }
+
     const filteredPhotos = photos.map(photo => ({
       ...photo,
-      isVisible: !searchTerm || photo.title.toLowerCase().startsWith(searchTerm.toLowerCase())
+      isVisible: isPhotoVisible(photo)
     }))
     setPhotos(filteredPhotos)
-  }, [searchTerm])
+  }, [searchTerm, selectedTag])
 
   return (
     <Background>
@@ -81,6 +88,8 @@ function App() {
             <Gallery 
               photos={photos} 
               onSelectedPhoto={photo => setSelectedPhoto(photo)}
+              onSelectTag={tag => setSelectedTag(tag)}
+              selectedTag={selectedTag}
               onToggleFavPhoto={onToggleFavPhoto}
             />
           </ContentContainer>

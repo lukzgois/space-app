@@ -16,9 +16,9 @@ const StyledButton = styled.button`
   }
 `
 
-const Tag = ({ children, active = false }) => {
+const Tag = ({ children, active = false, ...rest}) => {
   return (
-    <StyledButton $active={active}>
+    <StyledButton $active={active} {...rest}>
       {children}
     </StyledButton>
   )
