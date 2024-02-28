@@ -15,13 +15,15 @@ const Photos = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
 
       <PhotosContainer>
 
-        {photos.map(photo => (
-          <Photo 
+        {photos.map(photo => {
+          if (!photo.isVisible) return;
+
+          return <Photo 
             onExpand={onSelectedPhoto}
             onToggleFavPhoto={onToggleFavPhoto}
             key={photo.id} photo={photo}
           />
-        ))}
+        })}
       </PhotosContainer>
     </div>
   )

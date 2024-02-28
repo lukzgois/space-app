@@ -33,10 +33,15 @@ const SearchIcon = styled.img`
   height: 38px;
 `
 
-const SearchInput = (props) => {
+const SearchInput = ({ term, onSearch, ...rest}) => {
   return (
     <StyledContainer>
-      <StyledInput placeholder="O que você procura?" {...props} />
+      <StyledInput 
+        placeholder="O que você procura?" 
+        value={term}
+        onChange={e => onSearch(e.target.value)}
+        {...rest} 
+      />
       <SearchIcon src={search} alt="Ícone de lupa" />
     </StyledContainer>
   )

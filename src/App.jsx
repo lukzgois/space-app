@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import GlobalStyles from './components/GlobalStyles'
 import styled from "styled-components"
 import Header from './components/Header'
@@ -40,7 +40,7 @@ function App() {
     if (favPhoto.id === selectedPhoto?.id) {
       setSelectedPhoto({
         ...selectedPhoto,
-        favorite: true
+        favorite: !selectedPhoto.favorite
       })
     }
 
@@ -50,12 +50,26 @@ function App() {
     })))
   }
 
+
+  const [searchTerm, setSearchTerm] = useState('')
+  useEffect(() => {
+    const filteredPhotos = photos.map(photo => ({
+      ...photo,
+      isVisible: !searchTerm || photo.title.toLowerCase().startsWith(searchTerm.toLowerCase())
+    }))
+    setPhotos(filteredPhotos)
+  }, [searchTerm])
+
   return (
     <Background>
       <GlobalStyles />
 
       <AppContainer>
-        <Header />
+        <Header
+          searchTerm={searchTerm}
+          onSearch={term => setSearchTerm(term)}
+        />
+
         <MainContainer>
           <Sidebar />
           <ContentContainer>

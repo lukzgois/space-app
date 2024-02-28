@@ -12,12 +12,12 @@ const StyledHeader = styled.header`
   }
 `
 
-const Header = () => {
+const Header = ({searchTerm, onSearch}) => {
 
   return (
     <StyledHeader>
       <img src="/images/logo.png" />
-      <SearchInput />
+      <SearchInput term={searchTerm} onSearch={onSearch} />
     </StyledHeader>
   )
 }
