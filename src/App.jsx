@@ -7,6 +7,7 @@ import Banner from './components/Banner'
 import BannerImage from './assets/banner.png'
 import Gallery from './components/Gallery'
 import photosJson from './fotos.json'
+import PhotoModal from './components/Gallery/PhotoModal'
 
 const Background = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -33,6 +34,7 @@ const ContentContainer = styled.section`
 
 function App() {
   const [photos, setPhotos] = useState(photosJson)
+  const [selectedPhoto, setSelectedPhoto] = useState(null)
 
   return (
     <Background>
@@ -47,10 +49,16 @@ function App() {
               text="A galeria mais completa de fotos do espaço!"
               background={BannerImage}
             />
-            <Gallery photos={photos} />
+
+            <Gallery 
+              photos={photos} 
+              onSelectedPhoto={photo => setSelectedPhoto(photo)}
+            />
           </ContentContainer>
         </MainContainer>
       </AppContainer>
+
+      <PhotoModal selectedPhoto={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
     </Background>
   )
 }

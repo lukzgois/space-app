@@ -13,7 +13,7 @@ const PhotosContainer = styled.div`
   gap: 24px;
 `
 
-const Gallery = ({ photos = [] }) => {
+const Gallery = ({ photos = [], onSelectedPhoto }) => {
   return (
     <StyledDiv>
       <Tags activeTag="Todas" />
@@ -22,10 +22,9 @@ const Gallery = ({ photos = [] }) => {
       <PhotosContainer>
         {photos.map(photo => (
           <Photo 
-            key={photo.id} 
-            title={photo.titulo} 
-            path={photo.path} 
-            source={photo.fonte}
+            onExpand={onSelectedPhoto}
+            key={photo.id}
+            photo={photo}
           />
         ))}
       </PhotosContainer>

@@ -5,7 +5,7 @@ const StyledFigure = styled.figure`
   margin: 0;
   display: flex;
   flex-direction: column;
-  width: 448px;
+  width: ${props => props.$expanded ? '90%' : '448px'};
 
   & > img {
     max-width: 100%;
@@ -20,6 +20,7 @@ const StyledFigure = styled.figure`
     background-color: #001634;
     border-radius: 0 0 20px 20px;
     padding: 0 16px;
+    color: #FFF;
 
     h3,h4 {
       margin: 0;
@@ -43,9 +44,11 @@ const ButtonsContainer = styled.div`
   gap: 24px;
 `
 
-const Photo = ({ path, title, source }) => {
+const Photo = ({ photo, expanded = false, onExpand }) => {
+  const { path, title, source } = photo
+
   return (
-    <StyledFigure>
+    <StyledFigure $expanded={expanded}>
       <img src={path} alt={title} />
       <figcaption>
         <div>
@@ -58,8 +61,8 @@ const Photo = ({ path, title, source }) => {
             <img src="/icons/favorito.png" alt="Icone de favorito" />
           </IconButton>
 
-          <IconButton>
-            <img src="/icons/expandir.png" alt="Icone de expandir" />
+          <IconButton onClick={ () => onExpand(photo) }>
+            {!expanded && <img src="/icons/expandir.png" alt="Icone de expandir" />}
           </IconButton>
         </ButtonsContainer>
       </figcaption>
