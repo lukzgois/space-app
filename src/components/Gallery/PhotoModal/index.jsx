@@ -30,13 +30,17 @@ const StyledDialog = styled.dialog`
   }
 `
 
-const PhotoModal = ({ selectedPhoto, onClose }) => {
+const PhotoModal = ({ selectedPhoto, onClose, onToggleFavPhoto }) => {
   return (
     <>
       {selectedPhoto && <>
         <Overlay>
           <StyledDialog open={!!selectedPhoto} onClose={onClose}>
-            <Photo photo={selectedPhoto} expanded={true} />
+            <Photo 
+              photo={selectedPhoto} 
+              expanded={true}
+              onToggleFavPhoto={onToggleFavPhoto}
+            />
 
             <form method="dialog">
               <IconButton>

@@ -36,6 +36,20 @@ function App() {
   const [photos, setPhotos] = useState(photosJson)
   const [selectedPhoto, setSelectedPhoto] = useState(null)
 
+  const onToggleFavPhoto = (favPhoto) => {
+    if (favPhoto.id === selectedPhoto?.id) {
+      setSelectedPhoto({
+        ...selectedPhoto,
+        favorite: true
+      })
+    }
+
+    setPhotos(photos.map(photo => ({
+      ...photo,
+      favorite: photo.id === favPhoto.id ? !photo.favorite : photo.favorite
+    })))
+  }
+
   return (
     <Background>
       <GlobalStyles />
@@ -53,12 +67,17 @@ function App() {
             <Gallery 
               photos={photos} 
               onSelectedPhoto={photo => setSelectedPhoto(photo)}
+              onToggleFavPhoto={onToggleFavPhoto}
             />
           </ContentContainer>
         </MainContainer>
       </AppContainer>
 
-      <PhotoModal selectedPhoto={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
+      <PhotoModal 
+        selectedPhoto={selectedPhoto}
+        onClose={() => setSelectedPhoto(null)} 
+        onToggleFavPhoto={onToggleFavPhoto}
+      />
     </Background>
   )
 }

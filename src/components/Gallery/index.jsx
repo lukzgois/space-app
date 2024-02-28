@@ -13,13 +13,17 @@ const Container = styled.div`
   gap: 24px;
 `
 
-const Gallery = ({ photos = [], onSelectedPhoto }) => {
+const Gallery = ({ photos = [], onSelectedPhoto, onToggleFavPhoto }) => {
   return (
     <StyledDiv>
       <Tags activeTag="Todas" />
 
       <Container>
-        <Photos photos={photos} onSelectedPhoto={onSelectedPhoto} />
+        <Photos 
+          photos={photos} 
+          onSelectedPhoto={onSelectedPhoto} 
+          onToggleFavPhoto={onToggleFavPhoto}
+        />
         <Popular />
       </Container>
     </StyledDiv>

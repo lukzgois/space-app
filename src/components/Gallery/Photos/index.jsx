@@ -8,7 +8,7 @@ const PhotosContainer = styled.div`
   gap: 24px;
 `
 
-const Photos = ({photos = [], onSelectedPhoto}) => {
+const Photos = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
   return (
     <div>
       <Title>Navegue pela galeria</Title>
@@ -18,6 +18,7 @@ const Photos = ({photos = [], onSelectedPhoto}) => {
         {photos.map(photo => (
           <Photo 
             onExpand={onSelectedPhoto}
+            onToggleFavPhoto={onToggleFavPhoto}
             key={photo.id} photo={photo}
           />
         ))}

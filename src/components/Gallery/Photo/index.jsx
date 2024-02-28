@@ -44,8 +44,9 @@ const ButtonsContainer = styled.div`
   gap: 24px;
 `
 
-const Photo = ({ photo, expanded = false, onExpand }) => {
+const Photo = ({ photo, expanded = false, onExpand, onToggleFavPhoto }) => {
   const { path, title, source } = photo
+  const favIconImage = !!photo.favorite ? '/icons/favorito-ativo.png' : '/icons/favorito.png'
 
   return (
     <StyledFigure $expanded={expanded}>
@@ -57,8 +58,8 @@ const Photo = ({ photo, expanded = false, onExpand }) => {
         </div>
 
         <ButtonsContainer>
-          <IconButton>
-            <img src="/icons/favorito.png" alt="Icone de favorito" />
+          <IconButton onClick={() => onToggleFavPhoto(photo)}>
+            <img src={favIconImage} alt="Icone de favorito" />
           </IconButton>
 
           <IconButton onClick={ () => onExpand(photo) }>
