@@ -16,7 +16,7 @@ const StyledDialog = styled.dialog`
   width: 1156px;
   display: flex;
   justify-content: center;
-  top: 200px;
+  top: 50px;
   border: none;
   padding: 0;
   background-color: transparent;
