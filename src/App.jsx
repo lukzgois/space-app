@@ -8,6 +8,7 @@ import BannerImage from './assets/banner.png'
 import Gallery from './components/Gallery'
 import photosJson from './fotos.json'
 import PhotoModal from './components/Gallery/PhotoModal'
+import Footer from './components/Footer'
 
 const Background = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -19,6 +20,7 @@ const AppContainer = styled.div`
   width: 1440px;
   margin: 0 auto;
   max-width: 100%;
+  margin-bottom: 75px;
 `
 
 const MainContainer = styled.main`
@@ -93,8 +95,11 @@ function App() {
               onToggleFavPhoto={onToggleFavPhoto}
             />
           </ContentContainer>
+
         </MainContainer>
       </AppContainer>
+
+      <Footer />
 
       <PhotoModal 
         selectedPhoto={selectedPhoto}
