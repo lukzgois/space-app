@@ -1,18 +1,6 @@
 import styled from "styled-components"
 import SearchInput from "../SearchInput"
-
-/*
-const StyledHeader = styled.header`
-  padding: 60px 0; 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  img {
-    max-width: 212px;
-  }
-`
-*/
+import Menu from "./Menu"
 
 const StyledHeader = styled.header`
   display: flex;
@@ -25,7 +13,7 @@ const StyledHeader = styled.header`
   }
 `
 
-const MenuContainer = styled.div`
+const LeftSide = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -37,10 +25,11 @@ const Header = ({searchTerm, onSearch}) => {
 
   return (
     <StyledHeader>
-      <MenuContainer>
-        <img src="/icons/menu.png" width="32" height="32" />
+      <LeftSide>
+        <Menu />
+
         <img src="/images/logo.png" />
-      </MenuContainer>
+      </LeftSide>
 
       <SearchInput term={searchTerm} onSearch={onSearch} />
     </StyledHeader>
