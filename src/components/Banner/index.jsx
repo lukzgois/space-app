@@ -2,25 +2,22 @@ import styled from "styled-components"
 
 const StyledDiv = styled.div`
   background-image: ${ props => `url(${props.$background})` };
-  min-height: 328px;
-  max-width: 100%;
+  min-height: 140px;
   border-radius: 20px;
   background-size: cover;
+  background-position-x: -25px;
   display: flex;
-  flex-grow: 1;
   align-items: center;
-  padding-top: 92px;
-  padding-bottom: 92px;
-  padding-left: 64px;
+  justify-content: center;
   box-sizing: border-box;
+  padding: 0 24px;
 `
 
 const StyledTitle = styled.h1`
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 24px;
+  line-height: 28px;
   color: white;
   font-weight: 400;
-  max-width: 300px;
   margin: 0;
 `
 

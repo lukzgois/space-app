@@ -4,12 +4,12 @@ import Popular from "./Popular"
 import Photos from "./Photos"
 
 const StyledDiv = styled.div`
-  margin-top: 56px;
+  margin-top: 32px;
 `
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 212px;
+  grid-template-columns: 1fr;
   gap: 24px;
 `
 
@@ -24,6 +24,7 @@ const Gallery = ({ photos = [], onSelectedPhoto, onToggleFavPhoto, onSelectTag, 
           onSelectedPhoto={onSelectedPhoto} 
           onToggleFavPhoto={onToggleFavPhoto}
         />
+
         <Popular />
       </Container>
     </StyledDiv>

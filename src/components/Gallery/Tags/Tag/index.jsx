@@ -6,8 +6,9 @@ const StyledButton = styled.button`
   border: 2px solid;
   border-color: ${ props => props.$active ? '#7B78E5' : 'transparent' };
   border-radius: 10px;
-  padding: 10px 8px;
-  font-size: 24px;
+  padding: 6px 4px;
+  font-size: 16px;
+  line-height: 20px;
   cursor: pointer;
   transition: border-color 0.3s ease;
 

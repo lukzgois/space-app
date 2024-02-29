@@ -13,20 +13,16 @@ const Overlay = styled.div`
 
 const StyledDialog = styled.dialog`
   position: absolute;
-  width: 1156px;
-  display: flex;
-  justify-content: center;
-  top: 50px;
+  top: 50%;
+  bottom: 50%;
   border: none;
   padding: 0;
   background-color: transparent;
 
   form {
-    button {
-      position: relative;
-      top: 20px;
-      right: 45px;
-    }
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 `
 

@@ -14,7 +14,6 @@ const Photos = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
       <Title>Navegue pela galeria</Title>
 
       <PhotosContainer>
-
         {photos.map(photo => {
           if (!photo.isVisible) return;
 

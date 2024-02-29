@@ -5,7 +5,8 @@ const StyledFigure = styled.figure`
   margin: 0;
   display: flex;
   flex-direction: column;
-  width: ${props => props.$expanded ? '90%' : '448px'};
+  /* width: ${props => props.$expanded ? '90%' : '448px'}; */
+  width: 100%;
 
   & > img {
     max-width: 100%;
@@ -28,13 +29,13 @@ const StyledFigure = styled.figure`
 
     h3 {
       font-weight: bold;
-      font-size: 20px;
-      line-height: 24px;
+      font-size: 16px;
+      line-height: 20px;
     }
       
     h4 {
-      font-size: 16px;
-      line-height: 19px;
+      font-size: 14px;
+      line-height: 17px;
     }
   }
 `
@@ -59,12 +60,23 @@ const Photo = ({ photo, expanded = false, onExpand, onToggleFavPhoto }) => {
 
         <ButtonsContainer>
           <IconButton onClick={() => onToggleFavPhoto(photo)}>
-            <img src={favIconImage} alt="Icone de favorito" />
+            <img 
+              src={favIconImage}
+              alt="Icone de favorito" 
+              width="16"
+              height="16"
+            />
           </IconButton>
 
+          {!expanded &&
           <IconButton onClick={ () => onExpand(photo) }>
-            {!expanded && <img src="/icons/expandir.png" alt="Icone de expandir" />}
-          </IconButton>
+            <img
+              src="/icons/expandir.png" 
+              alt="Icone de expandir" 
+              width="16"
+              height="16"
+            />
+          </IconButton>}
         </ButtonsContainer>
       </figcaption>
     </StyledFigure>
