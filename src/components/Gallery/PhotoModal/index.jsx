@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Photo from "../Photo"
 import IconButton from "../../IconButton"
+import { mediaQuery } from "../../GlobalStyles/breakpoints"
 
 const Overlay = styled.div`
   position: fixed;
@@ -19,6 +20,10 @@ const StyledDialog = styled.dialog`
   padding: 0;
   background-color: transparent;
   width: 85%;
+
+  ${mediaQuery.md`
+    max-width: 900px;
+  `}
 
   form {
     position: absolute;

@@ -6,15 +6,15 @@ const StyledDiv = styled.div`
   min-height: 140px;
   border-radius: 20px;
   background-size: cover;
-  background-position-x: -25px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   padding: 0 24px;
   width: 100%;
 
-  ${mediaQuery.md`
-    background-position-x: -180px;
+  ${mediaQuery.xl`
+    height: 328px;
+    padding: 0 64px;
   `}
 `
 

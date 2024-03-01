@@ -20,5 +20,11 @@ export const mediaQuery = {
     @media screen and ${device.md} {
       ${css(args)};
     }
+  `,
+
+  xl: (...args) => css`
+    @media screen and ${device.xl} {
+      ${css(args)};
+    }
   `
 }
