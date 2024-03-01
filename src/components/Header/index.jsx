@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { mediaQuery } from "../GlobalStyles/breakpoints"
 import SearchInput from "../SearchInput"
 import Menu from "./Menu"
 
@@ -11,6 +12,10 @@ const StyledHeader = styled.header`
   img {
     max-width: 157px;
   }
+
+  ${mediaQuery.md`
+    flex-direction: row;
+  `}
 `
 
 const LeftSide = styled.div`
@@ -19,6 +24,10 @@ const LeftSide = styled.div`
   width: 100%;
   margin-bottom: 32px;
   align-items: center;
+
+  ${mediaQuery.md`
+    margin-bottom: 0
+  `}
 `
 
 const Header = ({searchTerm, onSearch}) => {

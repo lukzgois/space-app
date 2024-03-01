@@ -1,11 +1,17 @@
 import styled from "styled-components"
 import Photo from "../Photo"
 import Title from "../../Title"
+import { mediaQuery } from "../../GlobalStyles/breakpoints"
 
 const PhotosContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 24px;
+  margin-top: 32px;
+
+  ${mediaQuery.md`
+    grid-template-columns: 1fr 1fr
+  `}
 `
 
 const Photos = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
