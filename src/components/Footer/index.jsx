@@ -1,23 +1,24 @@
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
-  height: 80px;
   background: #04244F;
+  padding: 16px;
 `
 
 const Container = styled.div`
-  width: 1440px;
+  width: 100%;
   height: 100%;
-  margin: 0 auto;
-  max-width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 24px;
   font-size: 16px;
   line-height: 19px;
+  text-align: center;
 `
 
 const IconsContainer = styled.ul`
+  display: block;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -32,6 +33,11 @@ const Footer = () => {
   return (
     <StyledFooter>
       <Container>
+        <div>
+          <p>Designed by <Link href="https://alura.com.br" target="_blank">Alura</Link></p>
+          <p>Coded with ❤️ by Lucas Padilha Gois</p>
+        </div>
+
         <IconsContainer>
           <li>
             <a href="https://www.instagram.com/lukzgois" target="_blank">
@@ -39,11 +45,6 @@ const Footer = () => {
             </a>
           </li>
         </IconsContainer>
-
-        <div>
-          Designed by <Link href="https://alura.com.br" target="_blank">Alura</Link><br />
-          Coded with ❤️ by Lucas Padilha Gois
-        </div>
       </Container>
     </StyledFooter>
   )

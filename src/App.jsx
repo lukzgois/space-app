@@ -17,15 +17,11 @@ const Background = styled.div`
 `
 
 const AppContainer = styled.div`
-  width: 1440px;
-  margin: 0 auto;
-  max-width: 100%;
-  margin-bottom: 75px;
+  padding: 24px;
 `
 
 const MainContainer = styled.main`
-  display: flex;
-  gap: 24px
+  margin: 24px 0;
 `
 
 const ContentContainer = styled.section`
@@ -70,6 +66,7 @@ function App() {
   }, [searchTerm, selectedTag])
 
   return (
+
     <Background>
       <GlobalStyles />
 
@@ -80,7 +77,6 @@ function App() {
         />
 
         <MainContainer>
-          <Sidebar />
           <ContentContainer>
             <Banner 
               text="A galeria mais completa de fotos do espaço!"
@@ -95,7 +91,6 @@ function App() {
               onToggleFavPhoto={onToggleFavPhoto}
             />
           </ContentContainer>
-
         </MainContainer>
       </AppContainer>
 

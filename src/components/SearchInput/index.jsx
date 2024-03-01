@@ -4,10 +4,11 @@ import search from './search.png'
 const StyledContainer = styled.div`
   position: relative;
   display: inline-block;
+  width: 100%;
 `
 
 const StyledInput = styled.input`
-  width: 612px;
+  width: 100%;
   height: 56px;
   border-radius: 10px;
   border: 2px solid #C98CF1;

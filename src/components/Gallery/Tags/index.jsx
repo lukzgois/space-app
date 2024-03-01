@@ -4,20 +4,22 @@ import tags from './tags.json'
 
 const StyledDiv = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
 `
 
 const TagsContainer = styled.div`
   display: flex;
-  align-items: center;
-  gap: 24px
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  gap: 6px
 `
 
 const StyledText = styled.p`
   color:#D9D9D9;
-  font-size: 24px;
-  line-height: 29px;
-  width: 220px;
+  font-size: 20px;
+  line-height: 24px;
   margin: 0
 `
 
