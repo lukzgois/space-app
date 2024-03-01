@@ -1,7 +1,14 @@
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import styled from "styled-components"
+import { mediaQuery } from "../../GlobalStyles/breakpoints"
 import IconButton from "../../IconButton"
 import NavList from "../../Sidebar/NavList"
+
+const Container = styled.div`
+  ${mediaQuery.md`
+    display: none;
+  `} 
+`
 
 const MenuButton = styled.button`
   width: 32px;
@@ -40,7 +47,7 @@ const Menu = () => {
   }
 
   return (
-    <>
+    <Container>
       <MenuButton onClick={open}>
         <img src="/icons/menu.png" />
       </MenuButton>
@@ -54,7 +61,7 @@ const Menu = () => {
 
         <NavList />
       </Modal>
-    </>
+    </Container>
   )
 }
 

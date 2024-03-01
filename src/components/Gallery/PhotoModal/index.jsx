@@ -18,6 +18,7 @@ const StyledDialog = styled.dialog`
   border: none;
   padding: 0;
   background-color: transparent;
+  width: 85%;
 
   form {
     position: absolute;

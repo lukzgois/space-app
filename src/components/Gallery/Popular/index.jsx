@@ -1,15 +1,22 @@
 import photos from './popular.json'
 import Title from "../../Title"
 import styled from 'styled-components'
+import { mediaQuery } from '../../GlobalStyles/breakpoints'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-top: 32px;
 `
 
 const Image = styled.img`
-  border-radius: 20px
+  border-radius: 20px;
+  object-fit: cover;
+
+  ${mediaQuery.md`
+    height: 158px;
+  `}
 `
 
 const StyledButton = styled.button`

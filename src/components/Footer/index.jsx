@@ -1,8 +1,13 @@
 import styled from "styled-components";
+import { mediaQuery } from "../GlobalStyles/breakpoints";
 
 const StyledFooter = styled.footer`
   background: #04244F;
   padding: 16px;
+
+  ${mediaQuery.md`
+    padding: 16px 24px;
+  `}
 `
 
 const Container = styled.div`
@@ -15,6 +20,12 @@ const Container = styled.div`
   font-size: 16px;
   line-height: 19px;
   text-align: center;
+
+  ${mediaQuery.md`
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    text-align: right
+  `}
 `
 
 const IconsContainer = styled.ul`

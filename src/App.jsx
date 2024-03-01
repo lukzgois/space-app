@@ -9,6 +9,7 @@ import Gallery from './components/Gallery'
 import photosJson from './fotos.json'
 import PhotoModal from './components/Gallery/PhotoModal'
 import Footer from './components/Footer'
+import { mediaQuery } from './components/GlobalStyles/breakpoints'
 
 const Background = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -27,7 +28,15 @@ const MainContainer = styled.main`
 const ContentContainer = styled.section`
   display: flex;
   flex-direction: column;
-  flex-grow: 1
+  flex-grow: 1;
+
+  ${mediaQuery.md`
+    > div:first-child {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+  `}
 `
 
 function App() {
@@ -66,7 +75,6 @@ function App() {
   }, [searchTerm, selectedTag])
 
   return (
-
     <Background>
       <GlobalStyles />
 
@@ -78,10 +86,14 @@ function App() {
 
         <MainContainer>
           <ContentContainer>
-            <Banner 
-              text="A galeria mais completa de fotos do espaço!"
-              background={BannerImage}
-            />
+            <div>
+              <Sidebar />
+
+              <Banner 
+                text="A galeria mais completa de fotos do espaço!"
+                background={BannerImage}
+              />
+            </div>
 
             <Gallery 
               photos={photos} 

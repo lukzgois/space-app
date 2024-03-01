@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaQuery } from '../../../GlobalStyles/breakpoints'
 
 const StyledButton = styled.button`
   background-color: rgba(217, 217, 217, 0.3);
@@ -15,6 +16,12 @@ const StyledButton = styled.button`
   &:hover {
     border-color: #C98CF1;
   }
+
+  ${mediaQuery.md`
+    font-size: 24px;
+    line-height: 28px;
+    padding: 8px 4px;
+  `}
 `
 
 const Tag = ({ children, active = false, ...rest}) => {

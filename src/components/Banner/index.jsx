@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { mediaQuery } from "../GlobalStyles/breakpoints"
 
 const StyledDiv = styled.div`
   background-image: ${ props => `url(${props.$background})` };
@@ -8,9 +9,13 @@ const StyledDiv = styled.div`
   background-position-x: -25px;
   display: flex;
   align-items: center;
-  justify-content: center;
   box-sizing: border-box;
   padding: 0 24px;
+  width: 100%;
+
+  ${mediaQuery.md`
+    background-position-x: -180px;
+  `}
 `
 
 const StyledTitle = styled.h1`
@@ -19,6 +24,12 @@ const StyledTitle = styled.h1`
   color: white;
   font-weight: 400;
   margin: 0;
+
+  ${mediaQuery.md`
+    width: 250px;
+    font-size: 32px;
+    line-height: 38px;
+  `}
 `
 
 const Banner = ({ text, background }) => {

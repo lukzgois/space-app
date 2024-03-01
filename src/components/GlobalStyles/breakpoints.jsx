@@ -15,7 +15,7 @@ export const device = {
   xxl: `(min-width: ${size.xxl})`,
 }
 
-export const media = {
+export const mediaQuery = {
   md: (...args) => css`
     @media screen and ${device.md} {
       ${css(args)};

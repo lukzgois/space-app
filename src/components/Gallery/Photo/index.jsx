@@ -1,12 +1,17 @@
 import styled from "styled-components"
 import IconButton from "../../IconButton"
+import { mediaQuery } from "../../GlobalStyles/breakpoints"
 
 const StyledFigure = styled.figure`
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* width: ${props => props.$expanded ? '90%' : '448px'}; */
   width: 100%;
+
+  ${mediaQuery.md`
+    min-width: 246px;
+    flex: 1;
+  `}
 
   & > img {
     max-width: 100%;
@@ -22,6 +27,7 @@ const StyledFigure = styled.figure`
     border-radius: 0 0 20px 20px;
     padding: 0 16px;
     color: #FFF;
+    gap: 12px;
 
     h3,h4 {
       margin: 0;
@@ -50,7 +56,7 @@ const Photo = ({ photo, expanded = false, onExpand, onToggleFavPhoto }) => {
   const favIconImage = !!photo.favorite ? '/icons/favorito-ativo.png' : '/icons/favorito.png'
 
   return (
-    <StyledFigure $expanded={expanded}>
+    <StyledFigure>
       <img src={path} alt={title} />
       <figcaption>
         <div>
