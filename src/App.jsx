@@ -19,10 +19,20 @@ const Background = styled.div`
 
 const AppContainer = styled.div`
   padding: 24px;
+
+  ${mediaQuery.xl`
+    max-width: 1440px;
+    margin: 0 auto;
+  `}
 `
 
 const MainContainer = styled.main`
   margin: 24px 0;
+
+  ${mediaQuery.xl`
+    display: flex;
+    gap: 24px;
+  `}
 `
 
 const ContentContainer = styled.section`
@@ -36,6 +46,20 @@ const ContentContainer = styled.section`
       justify-content: space-between;
       gap: 24px;
     }
+  `}
+
+  ${mediaQuery.xl`
+    > div > aside {
+      display: none;
+    }
+  `}
+`
+
+const SidebarDesktopContainer = styled.section`
+  display: none;
+
+  ${mediaQuery.xl`
+    display: block;
   `}
 `
 
@@ -85,6 +109,10 @@ function App() {
         />
 
         <MainContainer>
+          <SidebarDesktopContainer>
+            <Sidebar />
+          </SidebarDesktopContainer>
+
           <ContentContainer>
             <div>
               <Sidebar />

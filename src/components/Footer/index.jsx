@@ -26,6 +26,11 @@ const Container = styled.div`
     justify-content: space-between;
     text-align: right
   `}
+
+  ${mediaQuery.xl`
+    max-width: 1440px;
+    margin: 0 auto;
+  `}
 `
 
 const IconsContainer = styled.ul`

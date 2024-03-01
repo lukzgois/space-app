@@ -19,7 +19,7 @@ const Container = styled.div`
   margin-top: 32px;
 
   ${mediaQuery.md`
-    grid-template-columns: 1fr 156px
+    grid-template-columns: 1fr minmax(156px, 212px)
   `}
 `
 
