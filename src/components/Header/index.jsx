@@ -30,7 +30,7 @@ const LeftSide = styled.div`
   `}
 `
 
-const Header = ({searchTerm, onSearch}) => {
+const Header = () => {
 
   return (
     <StyledHeader>
@@ -40,7 +40,7 @@ const Header = ({searchTerm, onSearch}) => {
         <img src="/images/logo.png" />
       </LeftSide>
 
-      <SearchInput term={searchTerm} onSearch={onSearch} />
+      <SearchInput />
     </StyledHeader>
   )
 }

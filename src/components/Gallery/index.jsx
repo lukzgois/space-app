@@ -23,17 +23,13 @@ const Container = styled.div`
   `}
 `
 
-const Gallery = ({ photos = [], onSelectedPhoto, onToggleFavPhoto, onSelectTag, selectedTag }) => {
+const Gallery = () => {
   return (
     <StyledDiv>
-      <Tags selectedTag={selectedTag} onSelectTag={onSelectTag} />
+      <Tags />
 
       <Container>
-        <PhotoList 
-          photos={photos} 
-          onSelectedPhoto={onSelectedPhoto} 
-          onToggleFavPhoto={onToggleFavPhoto}
-        />
+        <PhotoList />
 
         <Popular />
       </Container>

@@ -3,6 +3,7 @@
     "title": "Grande Nuvem de Magalhães",
     "source": "Alura Space",
     "path": "/images/galeria/foto-1.png",
+    "isVisible": true,
     "id": "1",
     "tagId": 2
   },
@@ -10,6 +11,7 @@
     "title": "Via Láctea",
     "source": "Alura Space",
     "path": "/images/galeria/foto-2.png",
+    "isVisible": true,
     "id": "2",
     "tagId": 2
   },
@@ -17,6 +19,7 @@
     "title": "Lua: quarto minguante",
     "source": "Alura Space",
     "path": "/images/galeria/foto-3.png",
+    "isVisible": true,
     "id": "3",
     "tagId": 3
   },
@@ -24,6 +27,7 @@
     "title": "Galáxia de Andrómeda",
     "source": "Alura Space",
     "path": "/images/galeria/foto-4.png",
+    "isVisible": true,
     "id": "4",
     "tagId": 2
   },
@@ -31,6 +35,7 @@
     "title": "Estrela Pistola",
     "source": "Alura Space",
     "path": "/images/galeria/foto-5.png",
+    "isVisible": true,
     "id": "5",
     "tagId": 1
   },
@@ -38,6 +43,7 @@
     "title": "Ilustração",
     "source": "Alura Space",
     "path": "/images/galeria/foto-6.png",
+    "isVisible": true,
     "id": "6",
     "tagId": 4
   },
@@ -45,6 +51,7 @@
     "title": "Galáxia de Andrómeda",
     "source": "Alura Space",
     "path": "/images/galeria/foto-7.png",
+    "isVisible": true,
     "id": "7",
     "tagId": 2
   },
@@ -52,6 +59,7 @@
     "title": "Ilustração",
     "source": "Alura Space",
     "path": "/images/galeria/foto-8.png",
+    "isVisible": true,
     "id": "8",
     "tagId": 4
   },
@@ -59,6 +67,7 @@
     "title": "Céu estrelado",
     "source": "Alura Space",
     "path": "/images/galeria/foto-9.png",
+    "isVisible": true,
     "id": "9",
     "tagId": 1
   },
@@ -66,6 +75,7 @@
     "title": "Ilustração",
     "source": "Alura Space",
     "path": "/images/galeria/foto-10.png",
+    "isVisible": true,
     "id": "10",
     "tagId": 1
   }

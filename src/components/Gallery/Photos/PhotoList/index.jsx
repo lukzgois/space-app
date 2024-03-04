@@ -1,7 +1,10 @@
+import { useContext } from "react"
 import styled from "styled-components"
 import Photo from "../Photo"
 import Title from "@components/Title"
 import { mediaQuery } from "@components/GlobalStyles/breakpoints"
+import { PhotoContext } from "@/contexts/PhotoContext"
+import PhotoModal from "../PhotoModal"
 
 const PhotosContainer = styled.div`
   display: grid;
@@ -14,7 +17,9 @@ const PhotosContainer = styled.div`
   `}
 `
 
-const PhotoList = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
+const PhotoList = () => {
+  const { photos, selectedPhoto, setSelectedPhoto, onToggleFavPhoto } = useContext(PhotoContext)
+
   return (
     <div>
       <Title>Navegue pela galeria</Title>
@@ -24,12 +29,19 @@ const PhotoList = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
           if (!photo.isVisible) return;
 
           return <Photo 
-            onExpand={onSelectedPhoto}
+            key={photo.id} 
+            photo={photo} 
             onToggleFavPhoto={onToggleFavPhoto}
-            key={photo.id} photo={photo}
+            onExpand={setSelectedPhoto}
           />
         })}
       </PhotosContainer>
+
+      <PhotoModal 
+        photo={selectedPhoto}
+        onClose={() => setSelectedPhoto(null)}
+        onToggleFavPhoto={onToggleFavPhoto}
+      />
     </div>
   )
 }

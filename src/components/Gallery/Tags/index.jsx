@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import Tag from './Tag'
 import tags from './tags.json'
 import { mediaQuery } from '../../GlobalStyles/breakpoints'
+import { useContext } from 'react'
+import { PhotoContext } from '@/contexts/PhotoContext'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -39,7 +41,9 @@ const StyledText = styled.p`
   `}
 `
 
-const Tags = ({selectedTag, onSelectTag}) => {
+const Tags = () => {
+  const { selectedTag, setSelectedTag } = useContext(PhotoContext)
+
   return (
     <StyledDiv>
       <StyledText>Busque por tags:</StyledText>
@@ -48,7 +52,7 @@ const Tags = ({selectedTag, onSelectTag}) => {
         {tags.map(tag => (
           <Tag 
             key={tag.id}
-            onClick={() => onSelectTag(tag)}
+            onClick={() => setSelectedTag(tag)}
             active={selectedTag.id == tag.id}
           >
             {tag.titulo}
