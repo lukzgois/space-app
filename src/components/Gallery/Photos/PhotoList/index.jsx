@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Photo from "../Photo"
-import Title from "../../Title"
-import { mediaQuery } from "../../GlobalStyles/breakpoints"
+import Title from "@components/Title"
+import { mediaQuery } from "@components/GlobalStyles/breakpoints"
 
 const PhotosContainer = styled.div`
   display: grid;
@@ -14,7 +14,7 @@ const PhotosContainer = styled.div`
   `}
 `
 
-const Photos = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
+const PhotoList = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
   return (
     <div>
       <Title>Navegue pela galeria</Title>
@@ -34,4 +34,4 @@ const Photos = ({photos = [], onSelectedPhoto, onToggleFavPhoto}) => {
   )
 }
 
-export default Photos
+export default PhotoList

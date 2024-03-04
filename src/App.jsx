@@ -7,7 +7,7 @@ import Banner from './components/Banner'
 import BannerImage from './assets/banner.png'
 import Gallery from './components/Gallery'
 import photosJson from './fotos.json'
-import PhotoModal from './components/Gallery/PhotoModal'
+import PhotoModal from './components/Gallery/Photos/PhotoModal'
 import Footer from './components/Footer'
 import { mediaQuery } from './components/GlobalStyles/breakpoints'
 

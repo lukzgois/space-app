@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import IconButton from "../../IconButton"
-import { mediaQuery } from "../../GlobalStyles/breakpoints"
+import IconButton from "@components/IconButton"
+import { mediaQuery } from "@components/GlobalStyles/breakpoints"
 
 const StyledFigure = styled.figure`
   margin: 0;

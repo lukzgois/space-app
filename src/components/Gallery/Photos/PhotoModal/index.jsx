@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Photo from "../Photo"
-import IconButton from "../../IconButton"
-import { mediaQuery } from "../../GlobalStyles/breakpoints"
+import Photo from "@components/Gallery/Photos/Photo"
+import IconButton from "@components/IconButton"
+import { mediaQuery } from "@components/GlobalStyles/breakpoints"
 
 const Overlay = styled.div`
   position: fixed;
