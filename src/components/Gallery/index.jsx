@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import Tags from "./Tags"
 import Popular from "./Popular"
-import Photos from "./Photos"
-import { mediaQuery } from "../GlobalStyles/breakpoints"
+import PhotoList from "./Photos/PhotoList"
+import { mediaQuery } from "@components/GlobalStyles/breakpoints"
 
 const StyledDiv = styled.div`
   margin-top: 32px;
@@ -23,17 +23,13 @@ const Container = styled.div`
   `}
 `
 
-const Gallery = ({ photos = [], onSelectedPhoto, onToggleFavPhoto, onSelectTag, selectedTag }) => {
+const Gallery = () => {
   return (
     <StyledDiv>
-      <Tags selectedTag={selectedTag} onSelectTag={onSelectTag} />
+      <Tags />
 
       <Container>
-        <Photos 
-          photos={photos} 
-          onSelectedPhoto={onSelectedPhoto} 
-          onToggleFavPhoto={onToggleFavPhoto}
-        />
+        <PhotoList />
 
         <Popular />
       </Container>

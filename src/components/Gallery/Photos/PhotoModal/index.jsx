@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Photo from "../Photo"
-import IconButton from "../../IconButton"
-import { mediaQuery } from "../../GlobalStyles/breakpoints"
+import Photo from "@components/Gallery/Photos/Photo"
+import IconButton from "@components/IconButton"
+import { mediaQuery } from "@components/GlobalStyles/breakpoints"
 
 const Overlay = styled.div`
   position: fixed;
@@ -32,14 +32,14 @@ const StyledDialog = styled.dialog`
   }
 `
 
-const PhotoModal = ({ selectedPhoto, onClose, onToggleFavPhoto }) => {
+const PhotoModal = ({photo, onToggleFavPhoto, onClose}) => {
   return (
     <>
-      {selectedPhoto && <>
+      {photo && <>
         <Overlay>
-          <StyledDialog open={!!selectedPhoto} onClose={onClose}>
+          <StyledDialog open={!!photo} onClose={onClose}>
             <Photo 
-              photo={selectedPhoto} 
+              photo={photo} 
               expanded={true}
               onToggleFavPhoto={onToggleFavPhoto}
             />
