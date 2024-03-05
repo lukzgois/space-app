@@ -1,27 +1,48 @@
 import photosJson from '@/fotos.json'
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
+import { PhotoReducer, actions } from '@reducers/PhotoReducer';
 
 export const PhotoContext = createContext()
 PhotoContext.displayName = 'Photo'
 
-export const PhotoContextProvider = ({children}) => {
-  const [photos, setPhotos] = useState(photosJson)
-  const [selectedPhoto, setSelectedPhoto] = useState(null)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedTag, setSelectedTag] = useState({ id: 0})
+const initialState = {
+  photos: photosJson,
+  selectedPhoto: null,
+  searchTerm: '',
+  selectedTag: {id: 0}
+}
 
-  const onToggleFavPhoto = (favPhoto) => {
-    if (favPhoto.id === selectedPhoto?.id) {
-      setSelectedPhoto({
-        ...selectedPhoto,
-        isFavorite: !selectedPhoto.isFavorite
-      })
+export const PhotoContextProvider = ({children}) => {
+  const [{
+    photos,
+    selectedPhoto,
+    searchTerm,
+    selectedTag,
+  }, dispatch] = useReducer(PhotoReducer, initialState)
+
+  const toggleFavorite = (payload) => {
+    const favPhoto = {
+      ...payload,
+      isFavorite: !payload.isFavorite
     }
 
-    setPhotos(photos.map(photo => ({
-      ...photo,
-      isFavorite: photo.id === favPhoto.id ? !photo.isFavorite : photo.isFavorite
-    })))
+    if (favPhoto.id === selectedPhoto?.id) {
+      dispatch({ type: actions.SELECT_PHOTO, payload: favPhoto})
+    }
+
+    dispatch({ type: actions.TOGGLE_FAVORITE, payload: { id: favPhoto.id } })
+  }
+
+  const selectPhoto = (photo) => {
+    dispatch({ type: actions.SELECT_PHOTO, payload: photo }) 
+  }
+
+  const search = (search) => {
+    dispatch({ type: actions.SEARCH, payload: search })
+  }
+
+  const selectTag = (tag) => {
+    dispatch({ type: actions.SELECT_TAG, payload: tag })
   }
 
   useEffect(() => {
@@ -37,20 +58,19 @@ export const PhotoContextProvider = ({children}) => {
       isVisible: isPhotoVisible(photo)
     }))
 
-    setPhotos(filteredPhotos)
+    dispatch({ type: actions.UPDATE, payload: filteredPhotos })
   }, [searchTerm, selectedTag])
 
   return (
     <PhotoContext.Provider value={{
       photos,
-      setPhotos,
-      onToggleFavPhoto,
       selectedPhoto,
-      setSelectedPhoto,
+      toggleFavorite,
+      selectPhoto,
       searchTerm,
-      setSearchTerm,
+      search,
       selectedTag,
-      setSelectedTag,
+      selectTag,
     }}>
       {children}
     </PhotoContext.Provider>

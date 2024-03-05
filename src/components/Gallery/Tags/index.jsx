@@ -42,7 +42,7 @@ const StyledText = styled.p`
 `
 
 const Tags = () => {
-  const { selectedTag, setSelectedTag } = useContext(PhotoContext)
+  const { selectedTag, selectTag } = useContext(PhotoContext)
 
   return (
     <StyledDiv>
@@ -52,7 +52,7 @@ const Tags = () => {
         {tags.map(tag => (
           <Tag 
             key={tag.id}
-            onClick={() => setSelectedTag(tag)}
+            onClick={() => selectTag(tag)}
             active={selectedTag.id == tag.id}
           >
             {tag.titulo}

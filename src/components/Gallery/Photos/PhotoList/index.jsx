@@ -18,7 +18,7 @@ const PhotosContainer = styled.div`
 `
 
 const PhotoList = () => {
-  const { photos, selectedPhoto, setSelectedPhoto, onToggleFavPhoto } = useContext(PhotoContext)
+  const { photos, selectedPhoto, selectPhoto, toggleFavorite } = useContext(PhotoContext)
 
   return (
     <div>
@@ -31,16 +31,16 @@ const PhotoList = () => {
           return <Photo 
             key={photo.id} 
             photo={photo} 
-            onToggleFavPhoto={onToggleFavPhoto}
-            onExpand={setSelectedPhoto}
+            onToggleFavPhoto={toggleFavorite}
+            onExpand={selectPhoto}
           />
         })}
       </PhotosContainer>
 
       <PhotoModal 
         photo={selectedPhoto}
-        onClose={() => setSelectedPhoto(null)}
-        onToggleFavPhoto={onToggleFavPhoto}
+        onClose={() => selectPhoto(null)}
+        onToggleFavPhoto={toggleFavorite}
       />
     </div>
   )

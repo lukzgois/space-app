@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import search from './search.png'
+import searchIcon from './search.png'
 import { PhotoContext } from "@/contexts/PhotoContext"
 import { useContext } from "react"
 
@@ -37,17 +37,17 @@ const SearchIcon = styled.img`
 `
 
 const SearchInput = ({ ...rest }) => {
-  const {searchTerm, setSearchTerm} = useContext(PhotoContext)
+  const {searchTerm, search} = useContext(PhotoContext)
 
   return (
     <StyledContainer>
       <StyledInput 
         placeholder="O que você procura?" 
         value={searchTerm}
-        onChange={e => setSearchTerm(e.target.value)}
+        onChange={e => search(e.target.value)}
         {...rest} 
       />
-      <SearchIcon src={search} alt="Ícone de lupa" />
+      <SearchIcon src={searchIcon} alt="Ícone de lupa" />
     </StyledContainer>
   )
 
