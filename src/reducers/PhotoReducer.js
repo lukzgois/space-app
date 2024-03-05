@@ -8,13 +8,14 @@ export const actions = {
 
 export const PhotoReducer = (state, { type, payload }) => {
   switch(type) {
-    case actions.TOGGLE_FAVORITE:
+    case actions.TOGGLE_FAVORITE: {
       const photos = state.photos.map(photo => ({
         ...photo,
         isFavorite: photo.id === payload.id ? !photo.isFavorite : photo.isFavorite
       }))
       
       return {...state, photos}
+    }
 
     case actions.UPDATE:
       return {...state, photos: payload}

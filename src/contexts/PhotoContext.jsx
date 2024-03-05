@@ -1,6 +1,7 @@
 import photosJson from '@/fotos.json'
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { PhotoReducer, actions } from '@reducers/PhotoReducer';
+import PropType from 'prop-types'
 
 export const PhotoContext = createContext()
 PhotoContext.displayName = 'Photo'
@@ -59,6 +60,8 @@ export const PhotoContextProvider = ({children}) => {
     }))
 
     dispatch({ type: actions.UPDATE, payload: filteredPhotos })
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, selectedTag])
 
   return (
@@ -75,4 +78,8 @@ export const PhotoContextProvider = ({children}) => {
       {children}
     </PhotoContext.Provider>
   )
+}
+
+PhotoContextProvider.propTypes = {
+  children: PropType.node.isRequired,
 }

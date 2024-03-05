@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import PropType from 'prop-types'
 
 const StyledLi = styled.li`
   font-size: 24px;
@@ -31,6 +32,12 @@ const NavItem = ({
       {children}
     </StyledLi>
   )
+}
+
+NavItem.propTypes = {
+  children: PropType.node.isRequired,
+  icon: PropType.string.isRequired,
+  active: PropType.bool,
 }
 
 export default NavItem

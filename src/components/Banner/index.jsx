@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { mediaQuery } from "../GlobalStyles/breakpoints"
+import PropType from 'prop-types'
 
 const StyledDiv = styled.div`
   background-image: ${ props => `url(${props.$background})` };
@@ -38,6 +39,11 @@ const Banner = ({ text, background }) => {
       <StyledTitle>{text}</StyledTitle>
     </StyledDiv>
   )
+}
+
+Banner.propTypes = {
+  text: PropType.string.isRequired,
+  background: PropType.string.isRequired,
 }
 
 export default Banner
