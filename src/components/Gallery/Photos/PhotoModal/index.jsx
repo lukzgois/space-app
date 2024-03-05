@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Photo from "@components/Gallery/Photos/Photo"
 import IconButton from "@components/IconButton"
 import { mediaQuery } from "@components/GlobalStyles/breakpoints"
+import PropType from 'prop-types'
 
 const Overlay = styled.div`
   position: fixed;
@@ -54,6 +55,12 @@ const PhotoModal = ({photo, onToggleFavPhoto, onClose}) => {
       </>}
     </>
   )
+}
+
+PhotoModal.propTypes = {
+  photo: PropType.object,
+  onToggleFavPhoto: PropType.func.isRequired,
+  onClose: PropType.func.isRequired,
 }
 
 export default PhotoModal

@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import IconButton from "@components/IconButton"
 import { mediaQuery } from "@components/GlobalStyles/breakpoints"
+import PropType from 'prop-types'
 
 const StyledFigure = styled.figure`
   margin: 0;
@@ -54,7 +55,7 @@ const ButtonsContainer = styled.div`
 const Photo = ({ photo, expanded = false, onToggleFavPhoto, onExpand }) => {
 
   const { path, title, source } = photo
-  const favIconImage = !!photo.isFavorite ? '/icons/favorito-ativo.png' : '/icons/favorito.png'
+  const favIconImage = photo.isFavorite ? '/icons/favorito-ativo.png' : '/icons/favorito.png'
 
   return (
     <StyledFigure>
@@ -88,6 +89,13 @@ const Photo = ({ photo, expanded = false, onToggleFavPhoto, onExpand }) => {
       </figcaption>
     </StyledFigure>
   )
+}
+
+Photo.propTypes = {
+  photo: PropType.object.isRequired,
+  expanded: PropType.bool,
+  onToggleFavPhoto: PropType.func.isRequired,
+  onExpand: PropType.func,
 }
 
 export default Photo

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { mediaQuery } from '../../../GlobalStyles/breakpoints'
+import PropType from 'prop-types'
 
 const StyledButton = styled.button`
   background-color: rgba(217, 217, 217, 0.3);
@@ -30,6 +31,11 @@ const Tag = ({ children, active = false, ...rest}) => {
       {children}
     </StyledButton>
   )
+}
+
+Tag.propTypes = {
+  children: PropType.node.isRequired,
+  active: PropType.bool,
 }
 
 export default Tag
